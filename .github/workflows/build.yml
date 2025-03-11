@@ -203,13 +203,13 @@ jobs:
       shell: bash
       run: |
         mv build-android-arm64/subprojects/frida-core/server/frida-server build-android-arm64/subprojects/frida-core/server/arm64-v8a
-        zip build-android-arm64/subprojects/frida-core/server/arm64-v8a
+        zip build-android-arm64/subprojects/frida-core/server/frida-server.zip *
         
         mv build-android-arm64/subprojects/frida-core/inject/frida-inject build-android-arm64/subprojects/frida-core/inject/arm64-v8a
-        zip build-android-arm64/subprojects/frida-core/inject/arm64-v8a
+        zip build-android-arm64/subprojects/frida-core/inject/frida-inject.zip *
         
         mv build-android-arm64/subprojects/frida-core/lib/gadget/frida-gadget.so build-android-arm64/subprojects/frida-core/lib/gadget/arm64-v8a.so
-        zip build-android-arm64/subprojects/frida-core/lib/gadget/arm64-v8a.so
+        zip build-android-arm64/subprojects/frida-core/lib/gadget/frida-gadget.so.zip *
         
 #zip build-android-arm/subprojects/frida-core/server/frida-server
         
