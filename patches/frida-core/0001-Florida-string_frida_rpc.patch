@@ -8,18 +8,7 @@ Subject: [PATCH] patch
  lib/base/rpc.vala                     | 6 +++---
  lib/base/socket.vala                  | 4 ++--
  server/server.vala                    | 3 ++-
- src/agent-container.vala              | 2 +-
- src/darwin/darwin-host-session.vala   | 2 +-
- src/droidy/droidy-client.vala         | 2 +-
- src/freebsd/binjector-glue.c          | 2 +-
- src/freebsd/freebsd-host-session.vala | 2 +-
- src/linux/frida-helper-backend.vala   | 2 +-
- src/linux/linux-host-session.vala     | 9 +++++----
- src/qnx/qnx-host-session.vala         | 2 +-
- src/windows/windows-host-session.vala | 2 +-
- tests/test-agent.vala                 | 2 +-
- tests/test-injector.vala              | 2 +-
- 15 files changed, 23 insertions(+), 21 deletions(-)
+ 4 files changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/inject/inject.vala b/inject/inject.vala
 index 84042dda..a0f03ec8 100644
@@ -99,44 +88,6 @@ index 525c145e..6a0590c2 100644
  		Environment.init ();
  
  #if DARWIN
-diff --git a/src/droidy/droidy-client.vala b/src/droidy/droidy-client.vala
-index ddc56ccc..8b9e9c4c 100644
---- a/src/droidy/droidy-client.vala
-+++ b/src/droidy/droidy-client.vala
-@@ -1015,7 +1015,7 @@ namespace Frida.Droidy {
- 						case "OPEN":
- 						case "CLSE":
- 						case "WRTE":
--							throw new Error.PROTOCOL ("Unexpected command");
-+							break;
- 
- 						default:
- 							var length = parse_length (command_or_length);
-diff --git a/src/freebsd/binjector-glue.c b/src/freebsd/binjector-glue.c
-index 2bdce0ae..16a304ff 100644
---- a/src/freebsd/binjector-glue.c
-+++ b/src/freebsd/binjector-glue.c
-@@ -805,7 +805,7 @@ frida_inject_instance_init_fifo (FridaInjectInstance * self)
- {
-   const int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
- 
--  self->fifo_path = g_strdup_printf ("%s/binjector-%u", self->temp_path, self->id);
-+  self->fifo_path = g_strdup_printf ("%s/%u", self->temp_path, self->id);
- 
-   mkfifo (self->fifo_path, mode);
-   chmod (self->fifo_path, mode);
-diff --git a/src/linux/frida-helper-backend.vala b/src/linux/frida-helper-backend.vala
-index 9da2152c..b133bd37 100644
---- a/src/linux/frida-helper-backend.vala
-+++ b/src/linux/frida-helper-backend.vala
-@@ -3233,7 +3233,7 @@ namespace Frida {
- 		}
- 
- 		private int memfd_create (string name, uint flags) {
--			return Linux.syscall (SysCall.memfd_create, name, flags);
-+			return Linux.syscall (SysCall.memfd_create, "jit-cache", flags);
- 		}
- 	}
  
 -- 
 2.47.1.windows.1
