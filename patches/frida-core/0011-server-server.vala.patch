@@ -4,8 +4,9 @@ Date: Mon, 27 Jan 2025 16:46:00 +0800
 Subject: [PATCH] patch
 
 ---
- lib/base/socket.vala                  | 4 ++--
- server/server.vala                    | 3 ++-
+ lib/base/socket.vala  | 4 ++--
+ server/server.vala    | 3 ++-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/lib/base/socket.vala b/lib/base/socket.vala
 index d2f4e8bd..5cd1099f 100644
