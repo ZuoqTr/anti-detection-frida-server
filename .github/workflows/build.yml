@@ -155,9 +155,9 @@ jobs:
           cd ../..
           echo $i
         done
-        cd ..
-        
-        ARCHES="android-arm android-arm64 android-x86 android-x86_64"
+        cd ..   
+
+        ARCHES="android-arm64" 
         for ARCH in $ARCHES
         do
           mkdir build-$ARCH
