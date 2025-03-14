@@ -5,7 +5,22 @@ Subject: [PATCH 1/9] Florida: string_frida_rpc
 
 ---
  lib/base/rpc.vala | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ inject/inject.vala                    | 2 +-
+ 2 file changed, 13 insertions(+), 4 deletions(-)
+
+diff --git a/inject/inject.vala b/inject/inject.vala
+index 84042dda..a0f03ec8 100644
+--- a/inject/inject.vala
++++ b/inject/inject.vala
+@@ -48,7 +48,7 @@ namespace Frida.Inject {
+ 				return 0;
+ 			}
+ 		} catch (OptionError e) {
+-			printerr ("%s\n", e.message);
++			printerr ("%s\nBuild From https://jshook.org\n", e.message);
+ 			printerr ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
+ 			return 1;
+ 		}
 
 diff --git a/lib/base/rpc.vala b/lib/base/rpc.vala
 index 8990b70e..d5acfebd 100644
