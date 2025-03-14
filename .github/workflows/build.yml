@@ -2,6 +2,9 @@ name: Build Anti-Dection-Frida
 
 on:
   workflow_dispatch:
+    inputs:
+      FRIDA_VERSION:
+        description: 'FRIDA_VERSION'
   push:
     branches: ["main", "ci"]
     paths:
@@ -13,7 +16,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     outputs:
-      FRIDA_VERSION: ${{ steps.pullFridaLatestRelease.outputs.FRIDA_VERSION }}
+      FRIDA_VERSION: ${{ github.event.inputs.FRIDA_VERSION }}
       ALREADY_RELEASE: ${{ steps.checkReleaseVersion.outputs.ALREADY_RELEASE }}
     steps:
       - name: Pull Frida Latest Release
@@ -143,7 +146,7 @@ jobs:
         export ANDROID_NDK_ROOT=${{ steps.setup-ndk.outputs.ndk-path }}
         echo "ANDROID_NDK_ROOT=$ANDROID_NDK_ROOT"
         
-        git clone --recurse-submodules https://github.com/frida/frida
+        git clone -b ${{ github.event.inputs.FRIDA_VERSION }} --recurse-submodules https://github.com/frida/frida
         cd frida
         for path in ../patches/*
         do
