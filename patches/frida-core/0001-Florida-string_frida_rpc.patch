@@ -4,8 +4,8 @@ Date: Tue, 18 Jul 2023 15:51:29 +0800
 Subject: [PATCH 1/9] Florida: string_frida_rpc
 
 ---
- lib/base/rpc.vala | 15 ++++++++++++---
  inject/inject.vala                    | 2 +-
+ lib/base/rpc.vala | 15 ++++++++++++---
  2 file changed, 13 insertions(+), 4 deletions(-)
 
 diff --git a/inject/inject.vala b/inject/inject.vala
