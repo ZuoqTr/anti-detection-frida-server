@@ -4,10 +4,10 @@ Date: Tue, 18 Jul 2023 15:57:19 +0800
 Subject: [PATCH 2/9] Florida: frida_agent_so
 
 ---
- src/linux/linux-host-session.vala | 7 ++++---
  lib/base/socket.vala                  | 4 ++--
  server/server.vala                    | 3 ++-
  src/freebsd/binjector-glue.c          | 2 +-
+ src/linux/linux-host-session.vala | 7 ++++---
  4 file changed, 9 insertions(+), 7 deletions(-)
 
 diff --git a/lib/base/socket.vala b/lib/base/socket.vala
